@@ -33,5 +33,5 @@ jobs:
       
       - name: Trigger Automatic CD Deployment on Render
         run: | 
-          curl -X PASTE "Trigger Automatic CD Deployment on Render"
+          curl -X PASTE "https://api.render.com/deploy/srv-d9odkce1egvs739qrg0g?key=63uuBzL8544"
         #idk how it was created
