@@ -1,0 +1,19 @@
+name: Platform Deployment Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Sarah's Code
+        uses: actions/checkout@v4
+
+      - name: Setup Docker Factory
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Package Test
+        run: docker build -t sarah-app:latest .
