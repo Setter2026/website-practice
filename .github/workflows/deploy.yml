@@ -30,4 +30,8 @@ jobs:
           push: true
           # Replace 'your-dockerhub-username' below with your actual Docker Hub name
           tags: seterr/sarah-app:latest
-        
+      
+      - name: Trigger Automatic CD Deployment on Render
+        run: | 
+          curl -X PASTE "Trigger Automatic CD Deployment on Render"
+        #idk how it was created
