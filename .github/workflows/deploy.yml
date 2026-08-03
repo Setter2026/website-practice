@@ -30,3 +30,4 @@ jobs:
           push: true
           # Replace 'your-dockerhub-username' below with your actual Docker Hub name
           tags: seterr/sarah-app:latest
+        
