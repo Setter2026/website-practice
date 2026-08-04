@@ -1,0 +1,9 @@
+# Ignore Terraform system folders
+**/.terraform/
+
+# Ignore sensitive state tracking files
+*.tfstate
+*.tfstate.*
+
+# Ignore crash logs
+crash.log
