@@ -1,0 +1,33 @@
+name: Infrastructure CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'infrastructure/**'
+
+jobs:
+  terraform-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Blueprint Code
+        uses: actions/checkout@v4
+
+      # --- STEP 1: Install Terraform on the Cloud Server ---
+      - name: Setup Terraform Engine
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.0"
+
+      # --- STEP 2: Initialize Plugins (Invisible Validation) ---
+      - name: Terraform Init
+        run: |
+          cd infrastructure
+          terraform init -backend=false
+
+      # --- STEP 3: Check Syntax and Formatting Rules ---
+      - name: Terraform Validate
+        run: |
+          cd infrastructure
+          terraform validate
