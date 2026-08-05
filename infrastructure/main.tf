@@ -17,7 +17,7 @@ resource "docker_image" "nginx_blueprint" {
 }
 
 # 2. Tell Terraform to start a live running container using that image
-resource "docker_container" "nginx_server {
+resource "docker_container" "nginx_server" {
   image = docker_image.nginx_blueprint.image_id
   name  = "platform-managed-web-server"
   
